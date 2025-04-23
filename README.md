@@ -60,7 +60,8 @@ Sanitarr supports configuration via:
     "DELUGE_PASSWORD": "your_deluge_password",
 
     "SCAN_INTERVAL": 30,
-    "BLOCKED_EXTENSIONS_FILE": "./blocked_extensions.txt"
+    "BLOCKED_EXTENSIONS_FILE": "./blocked_extensions.txt",
+    "FFPROBE_PATH": "null"
 }
 ```
 
@@ -124,10 +125,11 @@ services:
 
       SCAN_INTERVAL: "30"
       BLOCKED_EXTENSIONS_FILE: "/usr/src/app/blocked_extensions.txt"
+
+      FFPROBE_PATH: "null"
     volumes:
       - ./blocked_extensions.txt:/usr/src/app/blocked_extensions.txt
     restart: on-failure
-
 ```
 
 Ensure that your `options.json` and `blocked_extensions.txt` are in the same directory as your `docker-compose.yml` or adjust the paths accordingly.
