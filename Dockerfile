@@ -1,7 +1,7 @@
 FROM node:23-bookworm-slim
 
 RUN apt-get update
-RUN apt-get install -y ffmpeg
+#RUN apt-get install -y ffmpeg
 RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
