@@ -77,7 +77,7 @@ Sanitarr is developed with **Node.js v22.14.0**. You should install that version
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/sanitarr.git
+   git clone https://github.com/JijaProGamer/Sanitarr.git
    cd sanitarr
    ```
 
@@ -104,13 +104,30 @@ version: '3.8'
 
 services:
   sanitarr:
-    image: yourusername/my-node-app:latest
+    image: bloxxy213/sanitarr:latest
     environment:
-      OPTIONS_FILE: /config/options.json
+      RADARR_ENABLED: "yes"
+      RADARR_URL: "http://127.0.0.0:7878"
+      RADARR_KEY: "your_radarr_api_key"
+
+      SONARR_ENABLED: "yes"
+      SONARR_URL: "http://127.0.0.0:8989"
+      SONARR_KEY: "your_sonarr_api_key"
+
+      LIDARR_ENABLED: "yes"
+      LIDARR_URL: "http://127.0.0.0:8686"
+      LIDARR_KEY: "your_lidarr_api_key"
+
+      DELUGE_ENABLED: "yes"
+      DELUGE_URL: "http://192.0.0.0:8112"
+      DELUGE_PASSWORD: "your_deluge_password"
+
+      SCAN_INTERVAL: "30"
+      BLOCKED_EXTENSIONS_FILE: "/usr/src/app/blocked_extensions.txt"
     volumes:
-      - ./options.json:/config/options.json
       - ./blocked_extensions.txt:/usr/src/app/blocked_extensions.txt
     restart: on-failure
+
 ```
 
 Ensure that your `options.json` and `blocked_extensions.txt` are in the same directory as your `docker-compose.yml` or adjust the paths accordingly.
